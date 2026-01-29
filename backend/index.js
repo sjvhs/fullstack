@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+// parse JSON and urlencoded request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// /api/hello endpoint
-app.get('/api/hello', (req, res) => {
-  res.send('Hello from backend!');
-});
+
+
+const postsFeatures = require('./features/posts');
+app.use('/api', postsFeatures);
 
 // Start the server
 app.listen(PORT, () => {
