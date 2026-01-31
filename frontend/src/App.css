@@ -11,26 +11,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
+ max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
  
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #747bff;
-}
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+
+
 
 h1 {
   font-size: 3.2em;
@@ -45,6 +36,9 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #f9f9f9;
+  color: #213547;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -59,16 +53,9 @@ button:focus-visible {
 
 
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
 .App {
-  text-align: center;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
+  }
 
 form textarea {
   width: 100%;
@@ -76,7 +63,13 @@ form textarea {
   font-size: 1rem;
   padding: 0.5rem;
   box-sizing: border-box;
+  background-color: #ffffff;
+  color: #213547;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
+
+
 
 ul.posts-list {
   list-style: none;

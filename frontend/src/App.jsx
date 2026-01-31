@@ -53,10 +53,10 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <h1>Posts</h1>
 
-      <form onSubmit={createPost} className="post-form">
+      <form onSubmit={createPost}>
         <div>
           <textarea
             value={content}
