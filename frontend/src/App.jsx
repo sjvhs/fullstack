@@ -37,7 +37,7 @@ function App() {
       <form onSubmit={handleSubmit}>
         <textarea
           value={content}
-          onChange={e => setContent(e.target.value)}
+          onChange={e => setContent(e.target.value)}S
           placeholder="Write something..."
           rows={4}
         />
@@ -48,8 +48,8 @@ function App() {
         <p>Loading...</p>
       ) : (
         <ul className="posts-list">
-          {posts.map((post, idx) => (
-            <li key={idx}>
+          {posts.map((post) => (
+            <li key={post.id}>
               <div className="post-content">{post.content}</div>
               <div className="post-meta">{new Date(post.createdAt).toLocaleString()}</div>
             </li>
