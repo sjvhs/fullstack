@@ -1,16 +1,39 @@
-# React + Vite
+Here is what HTML should be produced by this app:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Posts — Sample</title>
+    <link rel="stylesheet" href="./App.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Posts</h1>
 
-Currently, two official plugins are available:
+      <form>
+        <textarea placeholder="Write something..." rows="4"></textarea>
+        <button type="button">Post</button>
+      </form>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+      <ul class="posts-list">
+        <li>
+          <div class="post-content">Hello world! This is the first post.</div>
+          <div class="post-meta">2/1/2026, 10:00:00 AM</div>
+        </li>
 
-## React Compiler
+        <li>
+          <div class="post-content">Here's a second post.
+It has two lines.</div>
+          <div class="post-meta">1/31/2026, 4:30:12 PM</div>
+        </li>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+        <li>
+          <div class="post-content">Third post — testing long content to see wrapping behavior. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+          <div class="post-meta">1/30/2026, 9:05:00 AM</div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
