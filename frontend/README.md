@@ -37,3 +37,93 @@ It has two lines.</div>
     </div>
   </body>
 </html>
+
+
+Here is what App.jsx looks like in javascript when converted:
+import { useState, useEffect } from 'react';
+import React from 'react';
+import './App.css';
+
+function App() {
+  const [posts, setPosts] = useState([]);
+  const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await fetch('/api/posts');
+      const data = await res.json();
+      setPosts(data);
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!content.trim()) return;
+
+    const res = await fetch('/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content })
+    });
+
+    const newPost = await res.json();
+    setPosts([newPost, ...posts]);
+    setContent('');
+  };
+
+  return React.createElement(
+    'div',
+    null,
+
+    React.createElement('h1', null, 'Posts'),
+
+    React.createElement(
+      'form',
+      { onSubmit: handleSubmit },
+
+      React.createElement('textarea', {
+        value: content,
+        onChange: e => setContent(e.target.value),
+        placeholder: 'Write something...',
+        rows: 4
+      }),
+
+      React.createElement(
+        'button',
+        { type: 'submit' },
+        'Post'
+      )
+    ),
+
+    loading
+      ? React.createElement('p', null, 'Loading...')
+      : React.createElement(
+          'ul',
+          { className: 'posts-list' },
+
+          posts.map((post) =>
+            React.createElement(
+              'li',
+              { key: post.id },
+
+              React.createElement(
+                'div',
+                { className: 'post-content' },
+                post.content
+              ),
+
+              React.createElement(
+                'div',
+                { className: 'post-meta' },
+                new Date(post.createdAt).toLocaleString()
+              )
+            )
+          )
+        )
+  );
+}
+
+export default App;
